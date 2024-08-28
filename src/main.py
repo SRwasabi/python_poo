@@ -41,6 +41,7 @@ if __name__ == "__main__":
     carro2 = Carro(modelo=nm_modelo, marca=nm_marca, cor=nm_cor, odometro=kms, tanque=n_tanque, consumo_medio=c_medio, motor=False)
     '''
     Controlando dois carros até ele atingir 600 Km
+    arrumar
     '''
     while ((carro1.get_odometro() < 600) and (carro2.get_odometro() < 600)) and ((carro1.get_tanque() > 0) or (carro2.get_tanque() > 0)):
         try:

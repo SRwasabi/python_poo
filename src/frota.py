@@ -2,7 +2,7 @@ class Carro:
     modelo : str
     marca : str
     cor : str
-    odometro = 0.0
+    __odometro = 0.0
     __motor_on = False
     __tanque = 0.0
     consumo_medio = 0.0
