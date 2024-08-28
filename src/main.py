@@ -57,9 +57,9 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    if carro1.motor_on:
+    if carro1.get_motor():
         carro1.desligar()
-    if carro2.motor_on:
+    if carro2.get_motor():
         carro2.desligar()
 
     print(carro1)

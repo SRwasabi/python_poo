@@ -13,18 +13,18 @@ class Carro:
         self.marca = marca
         self.cor = cor
         self.__odometro = odometro
-        self.motor_on = motor
-        self.tanque = tanque
+        self.__motor_on = motor
+        self.__tanque = tanque
         self.consumo_medio = consumo_medio
 
     def ligar(self):
-        if (not self.motor_on) and (self.tanque > 0):
-            self.motor_on = True
+        if (not self.__motor_on) and (self.tanque > 0):
+            self.__motor_on = True
         else:
             raise Exception("Erro: Motor já ligado ou sem combustível!")
 
     def acelerar(self, velocidade : float, tempo : float):
-        if self.motor_on and self.tanque > 0:
+        if self.__motor_on and self.tanque > 0:
             km = velocidade * tempo
             litros = km/self.consumo_medio
             if self.tanque >= litros:
@@ -40,8 +40,8 @@ class Carro:
             raise Exception("Erro: Não é possível acelerar! Motor desligado ou sem combustivel!")
 
     def desligar(self):
-        if self.motor_on:
-            self.motor_on = False
+        if self.__motor_on:
+            self.__motor_on = False
         else:
             raise Exception("Erro: Motor já desligado!")
         
@@ -51,10 +51,13 @@ class Carro:
     def get_tanque(self):
         return self.__tanque
 
+    def get_motor(self):
+        return self.__motor_on
+
     def __str__(self):
         info = (f'Carro {self.modelo}, marca {self.marca}, '
                 f'cor {self.cor}\n{self.__odometro} Km, '
-                f'motor {self.motor_on}, consumo {self.consumo_medio} km/l, tanque {self.tanque} L')
+                f'motor {self.__motor_on}, consumo {self.consumo_medio} km/l, tanque {self.tanque} L')
         return info
 
 
